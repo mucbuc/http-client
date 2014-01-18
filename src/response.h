@@ -5,10 +5,15 @@ namespace om636
 {
 	namespace http
 	{
-		Response 
-		//: quemitter obejct
+		template<template<class> class T> 
+		struct Response
+		: private T< Response< T > >  
 		{
-			~Response(); 
+			typedef T< Response > traits_type;
+			using typename traits_type::string_type; 
+			virtual ~Response(); 
+			virtual void onData(string_type) = 0;
+			virtual void onError(string_type) = 0;
 		};
 
 

@@ -15,7 +15,7 @@ namespace om636
 		struct Request
 		: private T< Request< T > >  
 		{
-			typedef T< Request< T > > traits_type;
+			typedef T< Request > traits_type;
 			using typename traits_type::string_type; 
 			
 			virtual ~Request(); 

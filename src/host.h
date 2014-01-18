@@ -18,29 +18,38 @@ namespace om636
 		static T del(U &, V);
 	};
 
-	struct traits
+	struct owner
 	{
-		typedef string_type; 
-	}; 
+		template<typename T> 
+		static T * create();
+
+		template<typename T> 
+		static void destroy(T &);
+	};
 
 	namespace http
 	{
-		template<>
-		struct host
+		template<template<class> class T, class U, class V>
+		struct Host
+		: private< T< Host< T, U, V > > 
+		, public Client< T > 
 		{	
-			typedef base_type;
-			using typename base_type::request_type;
-			using typename base_type::response_type;
+			typedef T< Host > traits_type;
+			typedef Client< T > base_type;
+			typedef U impl_policy; 
+			typedef V owner_policy; 
+			using typename traits_type::request_type;
+			using typename traits_type::response_type;
 
-			host();
-			virtual ~host();
+			Host();
+			virtual ~Host();
 			virtual response_type get(request_type);
 			virtual response_type post(request_type);
 			virtual response_type put(request_type);
 			virtual response_type del(request_type);
 
 		private:
-			using typename base_type::impl_type;
+			using typename traits_type::impl_type;
 			impl_type m_impl;
 		};
 	}
