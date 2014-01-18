@@ -3,20 +3,25 @@
 
 namespace om636
 {
-	// struct policy
-	// {
-	// 	template<typename T, typename U, typename V> 
-	// 	static T get(U &, V);
+	struct policy
+	{
+		template<typename T, typename U, typename V> 
+		static T get(U &, V);
 
-	// 	template<typename T, typename U, typename V> 
-	// 	static T post(U &, V);
+		template<typename T, typename U, typename V> 
+		static T post(U &, V);
 
-	// 	template<typename T, typename U, typename V> 
-	// 	static T put(U &, V);
+		template<typename T, typename U, typename V> 
+		static T put(U &, V);
 
-	// 	template<typename T, typename U, typename V> 
-	// 	static T del(U &, V);
-	// };
+		template<typename T, typename U, typename V> 
+		static T del(U &, V);
+	};
+
+	struct traits
+	{
+		typedef string_type; 
+	}; 
 
 	namespace http
 	{

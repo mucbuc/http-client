@@ -5,12 +5,11 @@ namespace om636
 {
 	namespace http
 	{
-
-		 response : quemitter obejct
-		 {
-		 	handle error
-		 	handle callback 
-		 }
+		Response 
+		//: quemitter obejct
+		{
+			~Response(); 
+		};
 
 
 
