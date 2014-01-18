@@ -11,11 +11,26 @@ namespace om636
 		{
 			typedef T< Response > traits_type;
 			using typename traits_type::string_type; 
+			
 			virtual ~Response(); 
 			virtual void onData(string_type) = 0;
 			virtual void onError(string_type) = 0;
 		};
 
+		template<template<class> class T> 
+		struct BasicResponse
+		: private T< BasicResponse< T > >
+		, public Response< T > 
+		{
+			typedef T< BasicResponse< T > > traits_type; 
+			typedef Response< T > base_type;
+			using typename traits_type::string_type; 
+
+			BasicResponse();
+			virtual ~BasicResponse(); 
+			virtual void onData(string_type);
+			virtual void onError(string_type);
+		};
 
 
 	}	// http

@@ -27,6 +27,29 @@ namespace om636
 			virtual string_type content() const = 0; 
 		};
 
+		template<template<class> class T> 
+		struct BasicRequest
+		: private T< BasicRequest< T > >
+		, public Request< T >
+		{
+			typedef T< ::BasicRequest > traits_type;
+			typedef Request< T > base_type; 
+			using traits_type::string_type; 
+
+			BasicRequest(); 
+			virtual ~BasicRequest(); 
+			virtual string_type & url();
+			virtual string_type url() const; 
+			virtual string_type & header();
+			virtual string_type header() const; 
+			virtual string_type & content();
+			virtual string_type content() const; 
+		private: 
+			string_type m_url;
+			string_type m_header;
+			string_type m_content;
+		};
+
 	}	// http
 }	// 	om636
 
