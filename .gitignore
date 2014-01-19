@@ -1,0 +1,4 @@
+.DS_Store
+test/.sconsign.dblite
+test/build_debug
+
