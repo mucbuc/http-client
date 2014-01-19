@@ -1,4 +1,4 @@
 .DS_Store
-test/.sconsign.dblite
-test/build_debug
+.sconsign.dblite
+build_debug/
 
