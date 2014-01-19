@@ -3,7 +3,7 @@ namespace om636
 	namespace http
 	{
 		template<class T, template<class> class U> 
-		client<T, U>::~client()
+		Client<T, U>::~Client()
 		{}
 	} 	// http
 }	// om636

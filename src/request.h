@@ -32,9 +32,9 @@ namespace om636
 		: private T< BasicRequest< T > >
 		, public Request< T >
 		{
-			typedef T< ::BasicRequest > traits_type;
+			typedef T< BasicRequest > traits_type;
 			typedef Request< T > base_type; 
-			using traits_type::string_type; 
+			using typename traits_type::string_type; 
 
 			BasicRequest(); 
 			virtual ~BasicRequest(); 

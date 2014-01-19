@@ -6,14 +6,14 @@ namespace om636
 	namespace http
 	{
 		template<class T, template<class> class U> 
-		struct client
-		: private U< client< T, U > > 
+		struct Client
+		: private U< Client< T, U > > 
 		{
-			typedef U< client< T, U > > traits_type;
+			typedef U< Client< T, U > > traits_type;
 			using typename traits_type::response_type;
 			using typename traits_type::request_type;
 
-			virtual ~client();
+			virtual ~Client();
 			virtual response_type get(request_type) = 0;
 			virtual response_type post(request_type) = 0;
 			virtual response_type put(request_type) = 0;

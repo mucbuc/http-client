@@ -7,7 +7,7 @@ namespace om636
 		{}
 
 		template<template<class> class T> 
-		BasicRequest()
+		BasicRequest<T>::BasicRequest()
 		: traits_type()
 		, base_type()
 		, m_url()
@@ -16,7 +16,7 @@ namespace om636
 		{}
 		
 		template<template<class> class T> 
-		~BasicRequest()
+		BasicRequest<T>::~BasicRequest()
 		{}
 
 		template<template<class> class T> 
