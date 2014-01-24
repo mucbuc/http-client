@@ -17,7 +17,10 @@ namespace om636
 		template<class T, template<class> class U>
 		auto mac_client< T, U >::post(request_type) -> response_type
 		{
-			std::cout << "post" << std::endl;
+            NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
+			NSURLRequest * req = [ NSURLRequest requestWithURL:url ];
+            NSURLConnection * con = [[NSURLConnection alloc] initWithRequest:req delegate:nil startImmediately:NO];
+            
 			return response_type();
 		}
 

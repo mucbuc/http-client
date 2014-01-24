@@ -1,6 +1,7 @@
 #ifndef MAC_H__Sq8JUEtgWjyMmwOAdQTfRleD5v6Zpi
 #define MAC_H__Sq8JUEtgWjyMmwOAdQTfRleD5v6Zpi
 
+#import <Foundation/Foundation.h>
 #include <iostream>
 #include <http-client/src/client.h>
 
