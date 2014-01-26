@@ -15,8 +15,12 @@ int main(int argc, const char * argv[])
     using namespace impl;
 	std::unique_ptr< client_type > c( make_client() );
 	request_type req;
-	response_type res( c->post( req ) );
+    c->get( req, [](response_type){
+        std::cout << "got response" << std::endl;
+    } );
    
+    sleep( 11000 ); 
+    
     return 0;
 }
 

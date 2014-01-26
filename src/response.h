@@ -27,7 +27,9 @@ namespace om636
 			using typename traits_type::string_type; 
 
 			BasicResponse();
-			virtual ~BasicResponse(); 
+//            BasicResponse(const BasicResponse &) = default;
+//            BasicResponse & operator=(const BasicResponse &) = default;
+			virtual ~BasicResponse();
 			virtual void onData(string_type);
 			virtual void onError(string_type);
 		};

@@ -9,35 +9,29 @@ namespace om636
 		{}
 
 		template<class T, template<class> class U>
-		auto mac_client< T, U >::get(request_type) -> response_type
-		{
-			return response_type();
-		}
-		
-		template<class T, template<class> class U>
-		auto mac_client< T, U >::post(request_type) -> response_type
+		void mac_client< T, U >::get(request_type, function_type done)
 		{
             NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
 			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
-            [ req setHTTPMethod:@"POST" ];
+            [ req setHTTPMethod:@"GET" ];
+            
+            [ NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc] init ] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                done( response_type() );
+             } ];
+		}
+		
+		template<class T, template<class> class U>
+		void mac_client< T, U >::request(request_type r, function_type done)
+		{
+            NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
+			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
+            //[ req setHTTPMethod:@"GET" ];
             
             [ NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc] init ] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                 NSLog( @"got reply" );
+                done( response_type() );
             }];
-            
-			return response_type();
 		}
 
-		template<class T, template<class> class U>
-		auto mac_client< T, U >::put(request_type) -> response_type
-		{
-			return response_type();
-		}
-
-		template<class T, template<class> class U>
-		auto mac_client< T, U >::del(request_type) -> response_type
-		{
-			return response_type();
-		}
 	}	//http
 }	// om636

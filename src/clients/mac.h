@@ -14,18 +14,14 @@ namespace om636
 		: Client< T, U > 
 		{	
 			typedef Client< T, U > base_type; 
-			using typename base_type::request_type; 
+			using typename base_type::request_type;
 			using typename base_type::response_type;
+			using typename base_type::function_type;
 
 			mac_client(); 
 			virtual ~mac_client() = default;
-			virtual response_type get(request_type);
-			virtual response_type post(request_type);
-			virtual response_type put(request_type);
-			virtual response_type del(request_type);
-		private: 
-
-			//NSURLConnectionDelegate * m_delegate;
+			virtual void get(request_type, function_type);
+			virtual void request(request_type, function_type);
 		};
 	}
 }

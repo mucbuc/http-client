@@ -22,7 +22,8 @@ namespace impl
 	{
 		typedef request_type request_type;
 		typedef response_type response_type;
-	};
+        typedef std::function<void(response_type)> function_type;
+    };
 
 	typedef om636::http::Client< void, client_traits > client_type; 
 
