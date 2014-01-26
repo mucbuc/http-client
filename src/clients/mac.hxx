@@ -18,8 +18,12 @@ namespace om636
 		auto mac_client< T, U >::post(request_type) -> response_type
 		{
             NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
-			NSURLRequest * req = [ NSURLRequest requestWithURL:url ];
-            NSURLConnection * con = [[NSURLConnection alloc] initWithRequest:req delegate:nil startImmediately:NO];
+			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
+            [ req setHTTPMethod:@"POST" ];
+            
+            [ NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc] init ] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                NSLog( @"got reply" );
+            }];
             
 			return response_type();
 		}

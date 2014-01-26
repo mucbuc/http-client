@@ -23,6 +23,9 @@ namespace om636
 			virtual response_type post(request_type);
 			virtual response_type put(request_type);
 			virtual response_type del(request_type);
+		private: 
+
+			//NSURLConnectionDelegate * m_delegate;
 		};
 	}
 }
