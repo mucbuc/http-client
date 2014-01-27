@@ -9,9 +9,9 @@ namespace om636
 		{}
 
 		template<class T, template<class> class U>
-		void mac_client< T, U >::get(request_type, function_type done)
+		void mac_client< T, U >::get(request_type r, function_type done)
 		{
-            NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
+            NSURL * url = [ NSURL URLWithString:[ NSString stringWithCString:r.url().c_str() encoding:NSUTF8StringEncoding ] ];
 			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
             [ req setHTTPMethod:@"GET" ];
             
@@ -23,13 +23,11 @@ namespace om636
 		template<class T, template<class> class U>
 		void mac_client< T, U >::request(request_type r, function_type done)
 		{
-            NSURL * url = [ NSURL URLWithString:@"www.google.com" ];
+            NSURL * url = [ NSURL URLWithString:[ NSString stringWithCString:r.url().c_str() encoding:NSUTF8StringEncoding ] ];
 			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
-            //[ req setHTTPMethod:@"GET" ];
             
             [ NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc] init ] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                NSLog( @"got reply" );
-                done( response_type() );
+                 done( response_type() );
             }];
 		}
 
