@@ -16,6 +16,7 @@ namespace om636
             [ req setHTTPMethod:@"GET" ];
             
             [ NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc] init ] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                //NSString * result = [ [ NSString alloc ] initWithData:data encoding:NSUTF8StringEncoding ];
                 done( response_type() );
              } ];
 		}
