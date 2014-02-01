@@ -14,13 +14,19 @@ int main(int argc, const char * argv[])
     using namespace impl;
 	std::unique_ptr< client_type > c( make_client() );
 	request_type req;
-    bool passed(0);
+    size_t passed(0);
     req.url() = "http://localhost:3000";
     c->get( req, [&](response_type r){
-        passed = r.data() == "ok";
+        if (r.data() == "ok")
+            ++passed;
     } );
-    sleep( 1 );
-    assert( passed );
+    c->request( req, [&](response_type r){
+        if (r.data() == "ok")
+            ++passed;
+    } );
+    
+    sleep( 3 );
+    assert( passed >= 2 );
     return 0;
 }
 

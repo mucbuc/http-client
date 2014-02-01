@@ -22,6 +22,8 @@ namespace om636
 			virtual ~mac_client() = default;
 			virtual void get(request_type, function_type);
 			virtual void request(request_type, function_type);
+        private:
+            static void request(NSMutableURLRequest *, function_type);
 		};
 	}
 }
