@@ -11,11 +11,19 @@
 
 int main(int argc, const char * argv[])
 {
+    using namespace std;
     using namespace impl;
-	std::unique_ptr< client_type > c( make_client() );
+    
+    if (argc < 2)
+    {
+        cout << "error: expected test server url" << endl;
+        return 1;
+    }
+    
+    unique_ptr< client_type > c( make_client() );
 	request_type req;
     size_t passed(0);
-    req.url() = "http://localhost:3000";
+    req.url() = argv[1];
     c->get( req, [&](response_type r){
         if (r.data() == "ok")
             ++passed;
@@ -24,7 +32,6 @@ int main(int argc, const char * argv[])
         if (r.data() == "ok")
             ++passed;
     } );
-    
     sleep( 3 );
     assert( passed >= 2 );
     return 0;
