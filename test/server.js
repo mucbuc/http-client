@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var http = require( 'http' )
-  , port = process.argv.length >= 3 ? parseInt( process.argv[2], 10 ) : 3000; 
+  , port = (process.argv.length >= 3) ? parseInt( process.argv[2], 10 ) : 3000; 
 
 console.log( 'listening on port: ' + port );
 
