@@ -22,6 +22,17 @@ namespace om636
 		{
             NSURL * url = [ NSURL URLWithString:[ NSString stringWithCString:r.url().c_str() encoding:NSUTF8StringEncoding ] ];
 			NSMutableURLRequest * req = [ NSMutableURLRequest requestWithURL:url ];
+            
+            if (r.method() == "POST")
+                [ req setHTTPMethod:@"POST" ];
+            else if (r.method() == "PUT")
+                [ req setHTTPMethod:@"PUT" ];
+            else if (r.method() == "DELETE")
+                [ req setHTTPMethod:@"DELETE" ];
+            
+            if (!r.content().empty())
+                [ req setHTTPBody:[ NSData dataWithBytes:r.content().c_str() length:r.content().size() ] ];
+            
             request( req, done );
         }
         

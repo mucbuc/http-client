@@ -20,21 +20,31 @@ int main(int argc, const char * argv[])
         return 1;
     }
     
+    // setup test
     unique_ptr< client_type > c( make_client() );
 	request_type req;
     size_t passed(0);
     req.url() = argv[1];
+    
+    // test get
     c->get( req, [&](response_type r){
         if (r.data() == "GET:")
             ++passed;
         cout << r.data() << endl;
     } );
-    // c->request( req, [&](response_type r){
-    //     if (r.data() == "")
-    //         ++passed;
-    // } );
+    
+    // test post
+    req.method() = "POST";
+    req.content() = "hello";
+    c->request( req, [&](response_type r){
+        if (r.data() == "POST:hello")
+            ++passed;
+        cout << r.data() << endl;
+    } );
+    
+    // 
     sleep( 3 );
-    assert( passed >= 1 );
+    assert( passed >= 2 );
     return 0;
 }
 
