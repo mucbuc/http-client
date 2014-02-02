@@ -6,8 +6,15 @@ var http = require( 'http' )
 console.log( 'listening on port: ' + port );
 
 var server = http.createServer(function(req, res){
-  res.end( 'ok' );
-  console.log( 'got request:', req );
+	var item = '';
+	req.setEncoding( 'utf8' );
+	req.on( 'data', function(data){
+		item += data;
+	});
+	req.on( 'end', function() {
+		console.log( 'got data', item );
+		res.end( req.method + ':' + item );
+	});
 }); 
 
 server.listen(port);
