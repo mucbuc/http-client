@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		561D6F99189F381F0020089C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 561D6F98189F381F0020089C /* main.cpp */; };
-		561D6F9B189F381F0020089C /* xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 561D6F9A189F381F0020089C /* xcode.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				561D6F9B189F381F0020089C /* xcode.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +25,6 @@
 /* Begin PBXFileReference section */
 		561D6F95189F381F0020089C /* xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		561D6F98189F381F0020089C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		561D6F9A189F381F0020089C /* xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcode.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				561D6F98189F381F0020089C /* main.cpp */,
-				561D6F9A189F381F0020089C /* xcode.1 */,
 			);
 			path = xcode;
 			sourceTree = "<group>";
@@ -225,6 +221,7 @@
 				561D6FA0189F381F0020089C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
