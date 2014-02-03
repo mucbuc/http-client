@@ -1,4 +1,7 @@
 
+#ifndef IMPL_INCLUDE_GUARD
+#define IMPL_INCLUDE_GUARD
+
 #include <string>
 #include <cassert>
 
@@ -123,3 +126,5 @@ namespace impl
         std::cout << "http-client test" << " passed" << std::endl;
     }
 }
+
+#endif
