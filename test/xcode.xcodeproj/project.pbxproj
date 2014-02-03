@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		561D6F99189F381F0020089C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 561D6F98189F381F0020089C /* main.cpp */; };
+		561D6FA6189F4B860020089C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561D6FA5189F4B860020089C /* Foundation.framework */; };
+		561D6FA8189F4BA10020089C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 561D6FA7189F4BA10020089C /* main.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		561D6F95189F381F0020089C /* xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcode; sourceTree = BUILT_PRODUCTS_DIR; };
-		561D6F98189F381F0020089C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		561D6FA2189F490A0020089C /* impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = impl.h; sourceTree = "<group>"; };
+		561D6FA5189F4B860020089C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = ../../../../../System/Library/Frameworks/Foundation.framework; sourceTree = "<group>"; };
+		561D6FA7189F4BA10020089C /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561D6FA6189F4B860020089C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +45,9 @@
 		561D6F8C189F381F0020089C = {
 			isa = PBXGroup;
 			children = (
-				561D6F97189F381F0020089C /* xcode */,
+				561D6FA5189F4B860020089C /* Foundation.framework */,
 				561D6F96189F381F0020089C /* Products */,
+				561D6FA1189F490A0020089C /* src */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +59,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		561D6F97189F381F0020089C /* xcode */ = {
+		561D6FA1189F490A0020089C /* src */ = {
 			isa = PBXGroup;
 			children = (
-				561D6F98189F381F0020089C /* main.cpp */,
+				561D6FA2189F490A0020089C /* impl.h */,
+				561D6FA7189F4BA10020089C /* main.mm */,
 			);
-			path = xcode;
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,7 +119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				561D6F99189F381F0020089C /* main.cpp in Sources */,
+				561D6FA8189F4BA10020089C /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +197,11 @@
 		561D6F9F189F381F0020089C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Users/markymark/work,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -198,6 +209,11 @@
 		561D6FA0189F381F0020089C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Users/markymark/work,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
