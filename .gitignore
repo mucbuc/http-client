@@ -4,3 +4,4 @@ build_debug/
 xcode/xcode.1
 xcuserdata/
 xcuserdatad/
+*.xcuserdatad/
