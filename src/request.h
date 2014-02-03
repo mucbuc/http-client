@@ -24,7 +24,9 @@ namespace om636
 			virtual string_type & header() = 0;
 			virtual string_type header() const = 0; 
 			virtual string_type & content() = 0;
-			virtual string_type content() const = 0; 
+			virtual string_type content() const = 0;
+            virtual string_type & method() = 0;
+            virtual string_type method() const = 0;
 		};
 
 		template<template<class> class T> 
@@ -43,11 +45,15 @@ namespace om636
 			virtual string_type & header();
 			virtual string_type header() const; 
 			virtual string_type & content();
-			virtual string_type content() const; 
-		private: 
+			virtual string_type content() const;
+            virtual string_type & method();
+            virtual string_type method() const;
+            
+		private:
 			string_type m_url;
 			string_type m_header;
 			string_type m_content;
+            string_type m_method;
 		};
 
 	}	// http

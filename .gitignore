@@ -1,4 +1,10 @@
 .DS_Store
 .sconsign.dblite
 build_debug/
+xcode/xcode.1
+xcuserdata/
+xcuserdatad/
+*.xcuserdatad/
+test/xcode.xcodeproj/project.xcworkspace
+test/xcode.xcodeproj/xcuserdata/
 

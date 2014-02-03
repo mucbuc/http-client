@@ -13,6 +13,7 @@ namespace om636
 		, m_url()
 		, m_header()
 		, m_content()
+        , m_method()
 		{}
 		
 		template<template<class> class T> 
@@ -54,5 +55,18 @@ namespace om636
 		{
 			return m_content;
 		}
+        
+        template<template<class> class T>
+		auto BasicRequest<T>::method() -> string_type &
+        {
+            return m_method;
+        }
+        
+        template<template<class> class T>
+		auto BasicRequest<T>::method() const -> string_type
+        {
+            return m_method;
+        }
+        
 	}	// http
 }	// 	om636

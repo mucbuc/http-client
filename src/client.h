@@ -10,14 +10,13 @@ namespace om636
 		: private U< Client< T, U > > 
 		{
 			typedef U< Client< T, U > > traits_type;
-			using typename traits_type::response_type;
 			using typename traits_type::request_type;
-
-			virtual ~Client();
-			virtual response_type get(request_type) = 0;
-			virtual response_type post(request_type) = 0;
-			virtual response_type put(request_type) = 0;
-			virtual response_type del(request_type) = 0;
+            using typename traits_type::response_type;
+            using typename traits_type::function_type;
+			
+			virtual ~Client() = default;
+			virtual void get(request_type, function_type) = 0;
+			virtual void request(request_type, function_type) = 0;
 		};
 	}
 }	// om636

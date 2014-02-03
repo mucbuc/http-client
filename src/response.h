@@ -15,6 +15,8 @@ namespace om636
 			virtual ~Response(); 
 			virtual void onData(string_type) = 0;
 			virtual void onError(string_type) = 0;
+            virtual string_type & data() = 0;
+            virtual const string_type & data() const = 0;
 		};
 
 		template<template<class> class T> 
@@ -26,10 +28,16 @@ namespace om636
 			typedef Response< T > base_type;
 			using typename traits_type::string_type; 
 
-			BasicResponse();
-			virtual ~BasicResponse(); 
+			BasicResponse(const string_type &);
+            BasicResponse(const BasicResponse &) = default;
+            BasicResponse & operator=(const BasicResponse &) = default;
+			virtual ~BasicResponse();
 			virtual void onData(string_type);
 			virtual void onError(string_type);
+            virtual string_type & data();
+            virtual const string_type & data() const;
+        private:
+            string_type m_data;
 		};
 
 
