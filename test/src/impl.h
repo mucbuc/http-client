@@ -120,7 +120,7 @@ namespace impl
 	    test_delete( c, arg  );
 	    
 	    // 
-	    sleep( 2 );
+	    sleep( 3 );
 	    assert( passed >= 4 );
         
         std::cout << "http-client test" << " passed" << std::endl;
