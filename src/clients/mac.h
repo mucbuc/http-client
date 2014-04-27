@@ -3,7 +3,7 @@
 
 #import <Foundation/Foundation.h>
 #include <iostream>
-#include <http-client/src/client.h>
+#include <src/client.h>
 
 namespace om636
 {

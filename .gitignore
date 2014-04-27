@@ -5,6 +5,5 @@ xcode/xcode.1
 xcuserdata/
 xcuserdatad/
 *.xcuserdatad/
-test/xcode.xcodeproj/project.xcworkspace
-test/xcode.xcodeproj/xcuserdata/
+test/test.xcodeproj/
 

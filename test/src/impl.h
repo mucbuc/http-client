@@ -5,10 +5,10 @@
 #include <string>
 #include <cassert>
 
-#include <http-client/src/client.h>
-#include <http-client/src/request.h>
-#include <http-client/src/response.h>
-#include <http-client/src/clients/mac.h>
+#include <src/client.h>
+#include <src/request.h>
+#include <src/response.h>
+#include <src/clients/mac.h>
 
 namespace impl
 {
@@ -121,7 +121,7 @@ namespace impl
 	    
 	    // 
 	    sleep( 3 );
-        assert( passed >= 4 );
+        ASSERT( passed >= 4 );
         
         std::cout << "http-client test" << " passed" << std::endl;
     }
