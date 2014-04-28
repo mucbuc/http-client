@@ -6,4 +6,5 @@ xcuserdata/
 xcuserdatad/
 *.xcuserdatad/
 test/test.xcodeproj/
-
+node_modules/
+test/build/
