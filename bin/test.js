@@ -145,7 +145,6 @@ function attachLogic(emitter) {
 			.on( 'close', function( code ) {
 				cb( code, buildDir );
 			});
-
 		});
 
 		function makePathIfNone( path, cb ) {
@@ -175,19 +174,25 @@ function attachLogic(emitter) {
 	}
 
 	function run( defFile, testDir, target, cb ) {
-		
+		var execPath = path.join( testDir, 'Default', target )
+		  , serverPath = path.join( testDir, '../echo_server.js' )
+		  , server;
 
-		var execPath = path.join( testDir, 'Default', target );
+		console.log( serverPath );
 
-		console.log( execPath );
-		
+		server = cp.fork( 
+			  	serverPath, 
+			  	[ '3000' ], 
+			  	{ silent: true } );
+
 		cp.spawn( 
 			execPath, 
-			[], {
+			[ 'http://localhost:3000' ], {
 			stdio: 'pipe'
 		})
 		.on( 'close', function( code ) {
 			cb( code );
+			server.kill();
 		})
 		.stdout.on( 'data', function( data ) {
 			cursor.blue();
