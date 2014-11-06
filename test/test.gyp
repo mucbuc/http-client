@@ -1,8 +1,9 @@
 {
 	'includes':[
 		'../http-client.gypi',
-		'../plank/def/mac-targets.gypi'
-	],#inclues
+		'plank/def/mac-targets.gypi',
+		'plank/def/cpp11.gypi'
+	],#includes
 	'target_defaults': {
 		'target_name': 'test',
 		'type': 'executable', 
@@ -11,8 +12,8 @@
 			'../test/src/impl.h',
 		], #sources
 		'include_dirs': [
-			'../plank/src/',
-			'../'
+			'plank/src/',
+			'.'
 		], #include_dirs		
 	}, #target_defaults
 }

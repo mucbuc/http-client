@@ -4,10 +4,10 @@
 
 #include <string>
 
-#include <src/client.h>
-#include <src/request.h>
-#include <src/response.h>
-#include <src/clients/mac.h>
+#include <lib/http-client/src/client.h>
+#include <lib/http-client/src/request.h>
+#include <lib/http-client/src/response.h>
+#include <lib/http-client/src/clients/mac.h>
 
 namespace impl
 {

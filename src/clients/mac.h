@@ -2,8 +2,9 @@
 #define MAC_H__Sq8JUEtgWjyMmwOAdQTfRleD5v6Zpi
 
 #import <Foundation/Foundation.h>
+
 #include <iostream>
-#include <src/client.h>
+#include <lib/http-client/src/client.h>
 
 namespace om636
 {
