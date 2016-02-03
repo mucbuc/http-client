@@ -1,6 +1,6 @@
 {
 	"import":[
-		"../http-client.json"
+		"lib/http-client/http-client.json"
 	],
 	"sources": [
 		"src/impl.h",
